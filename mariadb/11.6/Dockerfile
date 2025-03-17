@@ -21,11 +21,8 @@
 
 	## Prepare NSS Wrapper for the entrypoint
 	ENV         NSS_WRAPPER_PASSWD=/tmp/passwd NSS_WRAPPER_GROUP=/tmp/group
-	RUN         touch ${NSS_WRAPPER_PASSWD} ${NSS_WRAPPER_GROUP} \
-				&& chgrp 0 ${NSS_WRAPPER_PASSWD} ${NSS_WRAPPER_GROUP} \
-				&& chmod g+rw ${NSS_WRAPPER_PASSWD} ${NSS_WRAPPER_GROUP}
-	ADD         nss/passwd.template /passwd.template
-	ADD         nss/group.template /group.template
+	COPY        --chmod=755 nss/passwd.template /passwd.template
+	COPY        --chmod=755 nss/group.template /group.template
 
 
 	USER        container
