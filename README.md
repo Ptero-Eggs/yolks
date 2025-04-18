@@ -212,6 +212,8 @@ is tagged correctly.
     * `ghcr.io/ptero-eggs/yolks:mongodb_6`    
  * [`MongoDB 7`](/mongodb/7)
     * `ghcr.io/ptero-eggs/yolks:mongodb_7`
+ * [`MongoDB 8`](/mongodb/8)
+    * `ghcr.io/ptero-eggs/yolks:mongodb_8`
 
 ### [Mono](/mono)
 
