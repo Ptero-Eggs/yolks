@@ -240,7 +240,11 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:nodejs_21`
 * [`node22`](/nodejs/22)
   * `ghcr.io/ptero-eggs/yolks:nodejs_22`
-  
+* [`node23`](/nodejs/23)
+  * `ghcr.io/ptero-eggs/yolks:nodejs_23`
+* [`node24`](/nodejs/24)
+  * `ghcr.io/ptero-eggs/yolks:nodejs_24` 
+
 ### [PostgreSQL](/postgres)
   * [`Postgres 13`](/postgres/13)
     * `ghcr.io/ptero-eggs/yolks:postgres_13`
