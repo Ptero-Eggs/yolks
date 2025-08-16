@@ -280,6 +280,8 @@ is tagged correctly.
     * `ghcr.io/ptero-eggs/yolks:redis_6`
   * [`Redis 7`](/redis/7)
     * `ghcr.io/ptero-eggs/yolks:redis_7`
+  * [`Redis 8`](/redis/8)
+    * `ghcr.io/ptero-eggs/yolks:redis_8`
 
 ### [Rust](/rust)
 

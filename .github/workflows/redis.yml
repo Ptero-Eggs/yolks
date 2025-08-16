@@ -19,6 +19,7 @@ jobs:
         tag:
           - 6
           - 7
+          - 8
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
