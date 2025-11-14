@@ -138,6 +138,8 @@ is tagged correctly.
   * `ghcr.io/pterodactyl/games:mohaa`  
 * [`Multi Theft Auto: San Andreas`](games/mta)
   * `ghcr.io/pterodactyl/games:mta`    
+* [`Brickadia Omegga`](games/omegga)
+  * `ghcr.io/pterodactyl/games:omegga`
 * [`samp`](/games/samp)
   * `ghcr.io/ptero-eggs/games:samp`  
 * [`source`](/games/source)
