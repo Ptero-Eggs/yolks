@@ -37,9 +37,10 @@ RUN         if [ ! "$(uname -m)" = "x86_64" ]; then \
                 rm libssl1.1_1.1.1f-1ubuntu2_arm64.deb; \
             fi
 
-## Configure locale
-RUN          update-locale lang=en_US.UTF-8 \
-             && dpkg-reconfigure --frontend noninteractive locales
+# Generate locale
+RUN          sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+	&& locale-gen \
+	&& update-locale LANG=en_US.UTF-8
 
 
 WORKDIR     /home/container
