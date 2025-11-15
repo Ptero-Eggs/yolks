@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH golang:1.24-alpine
+FROM        --platform=$TARGETOS/$TARGETARCH golang:1.25-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
