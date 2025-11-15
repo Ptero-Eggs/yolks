@@ -30,7 +30,8 @@ is tagged correctly.
 
 * [alpine](/oses/alpine)
   * `ghcr.io/ptero-eggs/yolks:alpine`
-* [debian](/oses/debian)
+* [debian_bookworm](/oses/debian_bookworm)
+  * `ghcr.io/ptero-eggs/yolks:debian_bookworm`
   * `ghcr.io/ptero-eggs/yolks:debian`
 * [debian_trixie](/oses/debian_trixie)
   * `ghcr.io/ptero-eggs/yolks:debian_trixie`
@@ -67,8 +68,8 @@ is tagged correctly.
 
 ### [Cassandra](/cassandra)
 
-* [`cassandra_java8_python27`](/cassandra/cassandra_java8_python2)
-  * `ghcr.io/ptero-eggs/yolks:cassandra_java11_python2`
+* [`cassandra_java8_python2`](/cassandra/cassandra_java8_python2)
+  * `ghcr.io/ptero-eggs/yolks:cassandra_java8_python2`
 * [`cassandra_java11_python3`](/cassandra/cassandra_java11_python3)
   * `ghcr.io/ptero-eggs/yolks:cassandra_java11_python3`
 
@@ -110,7 +111,7 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:elixir_1.13`
 * [`elixir 1.14`](/elixir/1.14)
   * `ghcr.io/ptero-eggs/yolks:elixir_1.14`
-* [`elixir 1.15`](/elixir/1.12)
+* [`elixir 1.15`](/elixir/1.15)
   * `ghcr.io/ptero-eggs/yolks:elixir_1.15`
 * [`elixir latest`](/elixir/latest)
   * `ghcr.io/ptero-eggs/yolks:elixir_latest`
@@ -123,7 +124,11 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:erlang_23`
 * [`erlang24`](/erlang/24)
   * `ghcr.io/ptero-eggs/yolks:erlang_24`
-
+* [`erlang25`](/erlang/25)
+  * `ghcr.io/ptero-eggs/yolks:erlang_25`
+* [`erlang26`](/erlang/26)
+  * `ghcr.io/ptero-eggs/yolks:erlang_26`
+  * 
 ### [Games](/games)
 
 * [`altv`](/games/altv)
@@ -135,9 +140,9 @@ is tagged correctly.
 * [`minetest`](/games/minetest)
   * `ghcr.io/ptero-eggs/games:minetest`  
 * [`mohaa`](games/mohaa)
-  * `ghcr.io/pterodactyl/games:mohaa`  
+  * `ghcr.io/ptero-eggs/games:mohaa`  
 * [`Multi Theft Auto: San Andreas`](games/mta)
-  * `ghcr.io/pterodactyl/games:mta`    
+  * `ghcr.io/ptero-eggs/games:mta`    
 * [`samp`](/games/samp)
   * `ghcr.io/ptero-eggs/games:samp`  
 * [`source`](/games/source)
@@ -171,6 +176,9 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:go_1.23`
 * [`go1.24`](/go/1.24)
   * `ghcr.io/ptero-eggs/yolks:go_1.24`
+* [`go1.25`](/go/1.25)
+  * `ghcr.io/ptero-eggs/yolks:go_1.25`
+  * `ghcr.io/ptero-eggs/yolks:go_latest`
 
 ### [Java](/java)
 
