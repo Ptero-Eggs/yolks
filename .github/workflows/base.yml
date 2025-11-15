@@ -17,9 +17,13 @@ jobs:
       matrix:
         oses:
           - alpine
-          - debian
+          - debian_bookworm
           - debian_trixie
           - ubuntu
+        include:
+          - oses: debian_bookworm
+            alias_tags: |
+              ghcr.io/ptero-eggs/yolks:debian
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
@@ -39,3 +43,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/ptero-eggs/yolks:${{ matrix.oses }}
+            ${{ matrix.alias_tags }}
