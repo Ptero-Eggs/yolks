@@ -35,5 +35,7 @@ ENV         USER=container HOME=/home/container
 ENV         GOMODCACHE=/home/container/.go-modcache
 WORKDIR     /home/container
 
+ENV			YOLK_EOL_NAG_WARNING=1
+
 COPY		--chmod=755 --chown=root:root ../entrypoint.sh /entrypoint.sh
 ENTRYPOINT	["/entrypoint.sh"]
