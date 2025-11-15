@@ -28,6 +28,11 @@ jobs:
           - '1.23'
           - '1.24'
           - '1.25'
+        include:
+          - tag: 1.25
+            alias_tags: |
+              ghcr.io/ptero-eggs/yolks:go_latest
+
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
@@ -49,3 +54,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/ptero-eggs/yolks:go_${{ matrix.tag }}
+            ${{ matrix.alias_tags }}
