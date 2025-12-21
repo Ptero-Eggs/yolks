@@ -1,0 +1,32 @@
+name: Dockerfile Lint
+
+on:
+  pull_request:
+    paths:
+      - '**/Dockerfile'
+
+permissions:
+  contents: read
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed Dockerfiles
+        id: changed-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            **/Dockerfile
+
+      - name: Run hadolint
+        id: hadolint
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: hadolint/hadolint-action@v3.3.0
+        with:
+          dockerfile: ${{ steps.changed-files.outputs.all_changed_files }}
