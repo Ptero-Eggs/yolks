@@ -7,6 +7,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 
 # hadolint ignore=DL3015
 RUN         apt-get update -y \
+            && apt-get upgrade -y \
             && apt-get install -y \
                 curl \
                 lsof \

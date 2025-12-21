@@ -4,6 +4,7 @@ LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
 # hadolint ignore=DL3015
 RUN         apt-get update -y \
+            && apt-get upgrade -y \
             && apt-get install -y \
                 curl \
                 lsof \
