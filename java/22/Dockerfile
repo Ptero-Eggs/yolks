@@ -1,12 +1,14 @@
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:22-jdk-jammy
+FROM        eclipse-temurin:22-jdk-jammy
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apt update -y \
-            && apt install -y \
+# hadolint ignore=DL3015
+RUN         apt-get update -y \
+            && apt-get upgrade -y \
+            && apt-get install -y \
                 curl \
                 lsof \
                 ca-certificates \
@@ -20,17 +22,14 @@ RUN         apt update -y \
                 libfreetype6 \
                 tini \
 				zip \
-				unzip
+				unzip \
+			&& rm -rf /var/lib/apt/lists/*
 
-## Setup user and working directory
-RUN         useradd -m -d /home/container -s /bin/bash container
-USER        container
+## Setup working directory and environment
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 STOPSIGNAL SIGINT
 
-COPY        --chown=container:container ./../entrypoint.sh /entrypoint.sh
-RUN         chmod +x /entrypoint.sh
-ENTRYPOINT    ["/usr/bin/tini", "-g", "--"]
-CMD         ["/entrypoint.sh"]
+COPY        --chown=root:root --chmod=755 ./../entrypoint.sh /entrypoint.sh
+ENTRYPOINT    ["/usr/bin/tini", "-g", "--", "/entrypoint.sh"]
