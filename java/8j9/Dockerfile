@@ -1,9 +1,10 @@
-FROM        --platform=$TARGETOS/$TARGETARCH ibm-semeru-runtimes:open-8-jdk
+FROM        ibm-semeru-runtimes:open-8-jdk
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
-RUN         apt update -y \
-            && apt install -y \
+# hadolint ignore=DL3015
+RUN         apt-get update -y \
+            && apt-get install -y \
                 curl \
                 lsof \
                 ca-certificates \

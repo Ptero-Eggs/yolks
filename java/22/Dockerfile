@@ -1,12 +1,13 @@
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:22-jdk-jammy
+FROM        eclipse-temurin:22-jdk-jammy
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apt update -y \
-            && apt install -y \
+# hadolint ignore=DL3015
+RUN         apt-get update -y \
+            && apt-get install -y \
                 curl \
                 lsof \
                 ca-certificates \
