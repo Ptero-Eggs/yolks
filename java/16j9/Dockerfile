@@ -17,18 +17,15 @@ RUN         apt update -y \
                 libfreetype6 \
                 tini \
 				zip \
-				unzip
+				unzip \
+			&& rm -rf /var/lib/apt/lists/*
 
-## Setup user and working directory
-RUN         useradd -m -d /home/container -s /bin/bash container
-USER        container
+## Setup working directory and environment
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 STOPSIGNAL SIGINT
 
-COPY        --chown=container:container ./../entrypoint.sh /entrypoint.sh
-RUN         chmod +x /entrypoint.sh
-ENTRYPOINT    ["/usr/bin/tini", "-g", "--"]
-CMD         ["/entrypoint.sh"]
+COPY        --chown=root:root --chmod=755 ./../entrypoint.sh /entrypoint.sh
+ENTRYPOINT    ["/usr/bin/tini", "-g", "--", "/entrypoint.sh"]
 
