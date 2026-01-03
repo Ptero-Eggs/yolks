@@ -1,0 +1,37 @@
+name: build php
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+  push:
+    branches:
+      - main
+    paths:
+      - php/**
+jobs:
+  push:
+    name: "yolks:php_${{ matrix.tag }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tag:
+          - latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v5
+        with:
+          context: ./php
+          file: ./php/${{ matrix.tag }}/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/Rallymen007/yolks:php_${{ matrix.tag }}
