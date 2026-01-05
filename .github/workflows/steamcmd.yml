@@ -40,4 +40,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/steamcmd:${{ matrix.distro }}
+            ghcr.io/rallymen007/steamcmd:${{ matrix.distro }}
