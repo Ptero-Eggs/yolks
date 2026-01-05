@@ -24,7 +24,7 @@ jobs:
         include:
           - oses: debian_bookworm
             alias_tags: |
-              ghcr.io/ptero-eggs/yolks:debian
+              ghcr.io/rallymen007/yolks:debian
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
