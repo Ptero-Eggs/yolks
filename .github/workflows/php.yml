@@ -1,4 +1,4 @@
-name: build steamcmd
+name: build php
 on:
   workflow_dispatch:
   schedule:
@@ -7,22 +7,17 @@ on:
     branches:
       - main
     paths:
-      - steamcmd/**
+      - php/**
 jobs:
   push:
-    name: "steamcmd:${{ matrix.distro }}"
+    name: "yolks:php_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        distro:
-          - debian
-          - ubuntu
-          - ubuntu_24.04
-          - dotnet
-          - proton
-          - proton_8
-          - sniper
+        tag:
+          - latest
+          - "5.6"
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
@@ -35,9 +30,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v5
         with:
-          context: ./steamcmd
-          file: ./steamcmd/${{ matrix.distro }}/Dockerfile
-          platforms: linux/amd64
+          context: ./php
+          file: ./php/${{ matrix.tag }}/Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/rallymen007/steamcmd:${{ matrix.distro }}
+            ghcr.io/rallymen007/yolks:php_${{ matrix.tag }}
