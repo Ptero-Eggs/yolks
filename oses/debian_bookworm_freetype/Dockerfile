@@ -40,7 +40,8 @@ RUN         if [ ! "$(uname -m)" = "x86_64" ]; then \
 # Install FreeType for WINE to fix some errors
 RUN         if [ "$(uname -m)" = "x86_64" ]; then \
                 dpkg --add-architecture i386 && \
-                apt install -y libgnutls30:i386 libldap-2.4-2:i386 libgpg-error0:i386 libxml2:i386 libasound2-plugins:i386 libsdl2-2.0-0:i386 libfreetype6:i386 libdbus-1-3:i386 libsqlite3-0:i386
+                apt install -y libgnutls30:i386 libldap-2.4-2:i386 libgpg-error0:i386 libxml2:i386 libasound2-plugins:i386 libsdl2-2.0-0:i386 libfreetype6:i386 libdbus-1-3:i386 libsqlite3-0:i386 \
+            fi
 
 # Generate locale
 RUN          sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
