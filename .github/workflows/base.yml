@@ -18,12 +18,13 @@ jobs:
         oses:
           - alpine
           - debian_bookworm
+          - debian_bookworm_freetype
           - debian_trixie
           - ubuntu
         include:
           - oses: debian_bookworm
             alias_tags: |
-              ghcr.io/ptero-eggs/yolks:debian
+              ghcr.io/rallymen007/yolks:debian
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
@@ -42,5 +43,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/yolks:${{ matrix.oses }}
+            ghcr.io/rallymen007/yolks:${{ matrix.oses }}
             ${{ matrix.alias_tags }}
