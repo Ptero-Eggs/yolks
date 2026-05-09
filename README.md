@@ -278,6 +278,8 @@ is tagged correctly.
     * `ghcr.io/ptero-eggs/yolks:postgres_16`
   * [`Postgres 17`](/postgres/17)
     * `ghcr.io/ptero-eggs/yolks:postgres_17`
+  * [`Postgres 18`](/postgres/18)
+    * `ghcr.io/ptero-eggs/yolks:postgres_18`
 
 ### [Python](/python)
 
