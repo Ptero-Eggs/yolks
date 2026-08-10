@@ -132,7 +132,9 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:erlang_25`
 * [`erlang26`](/erlang/26)
   * `ghcr.io/ptero-eggs/yolks:erlang_26`
-  * 
+* [`erlang27](/erlang/27)
+  * `ghcr.io/ptero-eggs/yolks:erlang_27`
+
 ### [Games](/games)
 
 * [`altv`](/games/altv)
