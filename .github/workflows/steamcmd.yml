@@ -20,6 +20,7 @@ jobs:
           - ubuntu
           - ubuntu_24.04
           - dotnet
+          - nodejs
           - proton
           - proton_8
           - sniper

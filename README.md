@@ -323,6 +323,8 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/steamcmd:debian`
 * [`SteamCMD Debian Dotnet`](/steamcmd/dotnet)
   * `ghcr.io/ptero-eggs/steamcmd:dotnet`
+* [`SteamCMD Debian Node.js`](/steamcmd/nodejs)
+  * `ghcr.io/ptero-eggs/steamcmd:nodejs`
 * [`SteamCMD Proton`](/steamcmd/proton)
   * `ghcr.io/ptero-eggs/steamcmd:proton`
 * [`SteamCMD Proton`](/steamcmd/proton_8)
