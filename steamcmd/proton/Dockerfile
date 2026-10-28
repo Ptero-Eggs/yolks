@@ -1,19 +1,20 @@
 # ---------------------------------------------
 # Steam Proton image
 # ---------------------------------------------
-FROM        debian:bookworm-slim
+FROM        debian:trixie-slim
 
 LABEL       author="Torsten Widmann" maintainer="info@goover.de"
 
 ## install required packages
 RUN         dpkg --add-architecture i386
 RUN         apt update
-RUN         apt install -y --no-install-recommends wget iproute2 gnupg2 software-properties-common libntlm0 winbind xvfb xauth libncurses5-dev:i386 libncurses6 dbus libgdiplus lib32gcc-s1
-RUN         apt install -y alsa-tools libpulse0 pulseaudio libpulse-dev libasound2 libao-common gnutls-bin gnupg locales numactl cabextract curl python3 python3-pip python3-setuptools tini file pipx
+RUN         apt install -y --no-install-recommends wget iproute2 gnupg2 libntlm0 winbind xvfb xauth libncurses-dev:i386 libncurses6 dbus libgdiplus lib32gcc-s1
+RUN         apt install -y alsa-tools libpulse0 pulseaudio libpulse-dev libasound2t64 libao-common gnutls-bin gnupg locales numactl cabextract curl python3 python3-pip python3-setuptools tini file pipx
 RUN         useradd -d /home/container -m container
 
 # Download Proton GE
-RUN         curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | egrep .tar.gz)"
+# Releases ship both -x86_64 and -aarch64 tarballs, so pick exactly one x86_64 asset
+RUN         curl -fsSLOJ "$(curl -fsSL https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep -v aarch64 | grep -E '\.tar\.gz$' | head -n 1)"
 RUN         tar -xzf GE-Proton*.tar.gz -C /usr/local/bin/ --strip-components=1
 RUN         rm GE-Proton*.*
 
@@ -38,6 +39,9 @@ RUN         cd /tmp/ \
             
 USER        container
 ENV         USER=container HOME=/home/container
+# GE-Proton 11 hangs without a display: the entrypoint starts Xvfb when DISPLAY is unset.
+# Xalia (accessibility layer) only logs a "No displays available" crash on a headless server.
+ENV         PROTON_AUTO_XVFB=1 PROTON_USE_XALIA=0
 WORKDIR     /home/container
 
 STOPSIGNAL SIGINT

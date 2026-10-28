@@ -41,6 +41,22 @@ if [ -f "/usr/local/bin/proton" ]; then
 		export STEAM_COMPAT_DATA_PATH="/home/container/.steam/steam/steamapps/compatdata/${SRCDS_APPID}"
 		# Fix for pipx with protontricks
 		export PATH=$PATH:/root/.local/bin
+		# Newer Proton hangs without a display, so start a virtual one if none is set
+		if [ "${PROTON_AUTO_XVFB}" == "1" ] && [ -z "${DISPLAY}" ] && command -v Xvfb >/dev/null 2>&1; then
+			XVFB_DISPLAY_FILE=$(mktemp)
+			Xvfb -displayfd 3 -screen 0 1024x768x24 -nolisten tcp 3>"${XVFB_DISPLAY_FILE}" >/dev/null 2>&1 &
+			for _ in $(seq 1 50); do
+				[ -s "${XVFB_DISPLAY_FILE}" ] && break
+				sleep 0.1
+			done
+			if [ -s "${XVFB_DISPLAY_FILE}" ]; then
+				DISPLAY=":$(head -n 1 "${XVFB_DISPLAY_FILE}")"
+				export DISPLAY
+			else
+				echo "WARNING: failed to start Xvfb, Proton may hang without a display"
+			fi
+			rm -f "${XVFB_DISPLAY_FILE}"
+		fi
 	else
 		echo -e "----------------------------------------------------------------------------------"
 		echo -e "WARNING!!! SRCDS_APPID is missing and must be set when using Proton"
