@@ -141,6 +141,8 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/games:altv`
 * [`arma3`](/games/arma3)
   * `ghcr.io/ptero-eggs/games:arma3`
+* [`astroneer`](/games/astroneer)
+  * `ghcr.io/ptero-eggs/games:astroneer`
 * [`dayz`](/games/dayz)
   * `ghcr.io/ptero-eggs/games:dayz`
 * [`minetest`](/games/minetest)
