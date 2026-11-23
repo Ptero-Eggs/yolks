@@ -1,4 +1,4 @@
-FROM        eclipse-temurin:21-jdk-jammy
+FROM        eclipse-temurin:21.0.13.1_2-jdk-jammy
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
