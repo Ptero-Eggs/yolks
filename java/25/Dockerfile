@@ -1,4 +1,4 @@
-FROM        eclipse-temurin:25-jdk-noble
+FROM        eclipse-temurin:25.0.5.1_2-jdk-noble
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
