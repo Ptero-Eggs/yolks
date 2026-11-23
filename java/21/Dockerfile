@@ -1,4 +1,5 @@
-FROM        eclipse-temurin:21-jdk-jammy
+FROM        eclipse-temurin:21.0.13.1_2-jdk-jammy AS base-amd64
+FROM        eclipse-temurin:21-jdk-jammy AS base-arm64
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 

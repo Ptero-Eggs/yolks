@@ -1,4 +1,4 @@
-FROM        eclipse-temurin:17-jdk-jammy
+FROM        eclipse-temurin:17.0.21.1_2-jdk-jammy
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
